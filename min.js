@@ -14,7 +14,7 @@
     $('#resultList .el .t2 a').each(function () {
       var txt = $(this).html();
       if (localStorage.getItem(txt) != null) {
-        $(this).parents().parents("div").html().remove();
+        $(this).parent().parent().remove();
         console.log('pb');
       }
     });
@@ -31,6 +31,7 @@
       var str = $(this).next().text();
       if (confirm('确定屏蔽 ' + str + ' 吗?')) {
         localStorage.setItem(str, str);
+        $(this).parent().parent().remove();
         console.log('已经屏蔽→' + str);
       }
     });
